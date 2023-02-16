@@ -3,5 +3,7 @@
   <h3>"Titre :"{{ticket.title}}</h3>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
   <i class="far fa-user"></i> {{ticket.student}};
-  <i class="fa-solid fa-medal"></i> {{ticket.major}}
+  <i class="fa-solid fa-sportsball"></i> {{ticket.major}};
+  <br><input type="button" value="Delete ticket" (click)="deleteTicket()">
 </div>
+
