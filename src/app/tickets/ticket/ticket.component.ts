@@ -31,7 +31,7 @@ export class TicketComponent implements OnInit {
     this.ticketHasBeenSelected.emit(true);
   }
 
-  deleteTicket(ticket : Ticket){
+  deleteTicket(){
     this.ticketHasBeenDeleted.emit(true);
   }
 }

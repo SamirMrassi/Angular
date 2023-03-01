@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Ticket } from '../../models/ticket';
 import { TICKETS_MOCKED } from '../../mocks/tickets.mock';
 import { BehaviorSubject } from 'rxjs/index';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,15 @@ export class TicketService {
    * Services Documentation:
    * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
    */
-
-  private ticketList: Ticket[] = TICKETS_MOCKED;
+  private ticketList: Ticket[] = [
+    {
+      title: 'SI4 in Mallorca',
+      description: '',
+      date: new Date(),
+      student: 'Paul',
+      major: 'sport'
+    },
+  ];
 
   /**
    * Observable which contains the list of the tickets.
@@ -31,7 +39,8 @@ export class TicketService {
   }
 
   deleteTicket(ticket: Ticket){
-    this.ticketList = this.ticketList.filter((t: Ticket) => t !== ticket);
+    const index = this.ticketList.indexOf(ticket);
+    this.ticketList.splice(index, 1);
     this.tickets$.next(this.ticketList);
   }
 }

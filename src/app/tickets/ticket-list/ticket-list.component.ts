@@ -23,6 +23,7 @@ export class TicketListComponent implements OnInit {
   }
 
   deleteTicket(ticket: Ticket){
+    console.log('event received from child to delete this ticket.');
     this.ticketService.deleteTicket(ticket);
   }
 
